@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Favorite Jutsu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" style="flex-direction:column;align-items:center;justify-content:center;min-height:100vh;">
+        <h1 class="highlight">Enter Your Favorite Jutsu</h1>
+        <div class="jutsu-input-section">
+            <label for="jutsu-input">Enter your favorite jutsu:</label>
+            <input type="text" id="jutsu-input" placeholder="e.g. Chidori">
+            <button id="jutsu-btn">Show</button>
+            <div id="jutsu-result"></div>
+        </div>
+        <a href="index.html" class="main-btn" style="margin-top:2rem;">Back to Home</a>
+    </div>
+    <footer class="footer">Karki Samir 24229026</footer>
+    <script>
+        var jutsuBtn = document.getElementById('jutsu-btn');
+        if (jutsuBtn) {
+            jutsuBtn.addEventListener('click', function() {
+                var input = document.getElementById('jutsu-input').value.trim();
+                var result = document.getElementById('jutsu-result');
+                if (input) {
+                    result.textContent = 'Your favorite jutsu is: ' + input + '!';
+                    localStorage.setItem('favoriteJutsu', input);
+                } else {
+                    result.textContent = 'Please enter a jutsu.';
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

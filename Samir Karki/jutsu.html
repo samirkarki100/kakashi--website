@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kakashi's Jutsu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" style="flex-direction:column;align-items:center;justify-content:center;min-height:100vh;">
+        <h1 class="highlight">Kakashi's Signature Jutsu</h1>
+        <div id="user-fav-jutsu" class="user-fav-jutsu"></div>
+        <img id="jutsu-gif" src="Images/Raikiri.gif" alt="Kakashi Jutsu" class="jutsu-gif" style="max-width:320px;width:100%;border-radius:18px;box-shadow:0 4px 24px rgba(79,195,247,0.15);margin-bottom:2rem;display:block;">
+        <ul class="bio" style="max-width:400px;">
+            <li>Chidori (Lightning Blade)</li>
+            <li>Shadow Clone Jutsu</li>
+            <li>Kamui (Mangekyo Sharingan)</li>
+            <li>Earth Style: Mud Wall</li>
+            <li>Water Style: Water Dragon Jutsu</li>
+        </ul>
+        <a href="index.html" class="main-btn" style="margin-top:2rem;">Back to Home</a>
+    </div>
+    <footer class="footer">Karki Samir 24229026</footer>
+    <script>
+        // Show user's favorite jutsu from localStorage
+        const favJutsu = localStorage.getItem('favoriteJutsu');
+        const favDiv = document.getElementById('user-fav-jutsu');
+        const gifImg = document.getElementById('jutsu-gif');
+        if (favJutsu) {
+            favDiv.textContent = 'Your favorite jutsu: ' + favJutsu;
+            favDiv.style.display = 'block';
+            if (favJutsu.trim().toLowerCase() === 'kamui') {
+                gifImg.src = 'Images/Kamui.gif';
+                gifImg.alt = 'Kakashi Kamui';
+            } else {
+                gifImg.src = 'Images/Raikiri.gif';
+                gifImg.alt = 'Kakashi Raikiri';
+            }
+        } else {
+            favDiv.style.display = 'none';
+            gifImg.src = 'Images/Raikiri.gif';
+            gifImg.alt = 'Kakashi Raikiri';
+        }
+    </script>
+</body>
+</html> 
